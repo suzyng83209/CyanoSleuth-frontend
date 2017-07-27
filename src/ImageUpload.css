@@ -1,0 +1,4 @@
+.Image {
+  display: flex;
+  flex-direction: column;
+}
