@@ -19,10 +19,12 @@ const INITIAL_STATE = {
 export default function userInterface(state = INITIAL_STATE, action) {
   switch (action.type) {
     case UI_RESIZE:
-      const isMobile = isMobile();
       return {
         ...state,
-        isMobile: isMobile
+        isMobile: isMobile()
       };
+
+    default:
+      return state;
   }
 }
