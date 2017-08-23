@@ -1,0 +1,10 @@
+.container {
+  display: flex; }
+
+.button {
+  display: inline-block;
+  background: red; }
+  .button:active {
+    border-color: white; }
+  .button input {
+    display: none; }

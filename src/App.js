@@ -3,7 +3,6 @@ import Dropzone from "react-dropzone";
 import request from "superagent";
 import ReduxTest from "./ReduxTest";
 
-import ImageUploadDropZone from "./ImageUpload";
 import ImageUpload from './components/ImageUpload';
 import "./App.css";
 
@@ -19,7 +18,6 @@ class App extends Component {
     return (
       <div className="App">
         <ReduxTest />
-        <ImageUploadDropZone />
         <ImageUpload />
       </div>
     );
