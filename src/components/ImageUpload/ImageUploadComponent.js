@@ -33,7 +33,7 @@ const ImagePreview = styled.img`
   object-fit: cover;
   border-radius: 4px;
   border: 2px solid grey;
-`
+`;
 
 const ImageUploadLink = styled.input`
   display: none;
@@ -75,10 +75,18 @@ class ImageUploadComponent extends React.Component {
       if (err) {
         console.error(err);
       }
-      if (response.body.secure_url !== "") {
-        this.setState({ uploadedCloudinaryUrl: response.body.secure_url });
+
+      const { secure_url } = response.body;
+
+      if (secure_url !== "") {
+        this.setState({ uploadedCloudinaryUrl: secure_url });
+        this.props.updateImageUrl(secure_url);
       }
     });
+  };
+
+  replaceImage = () => {
+    this.setState({ uploadedCloudinaryUrl: "" });
   };
 
   render = () => {
@@ -95,7 +103,10 @@ class ImageUploadComponent extends React.Component {
                 capture={this.props.isMobile}
               />
             </ImageUploadButton>
-          : <ImagePreview src={uploadedCloudinaryUrl} />}
+          : <ImagePreview
+              src={uploadedCloudinaryUrl}
+              onClick={this.replaceImage}
+            />}
       </div>
     );
   };
